@@ -1,5 +1,7 @@
 from page.main import Main
 
+"""本模块为测试代码"""
+
 
 class TestWechat:
     def setup(self):
@@ -10,4 +12,3 @@ class TestWechat:
 
     def test_wechat(self):
         assert self.main.add_newMember().add_new().addressBook()
-
