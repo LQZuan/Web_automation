@@ -8,7 +8,7 @@ class TestWechat:
         self.main = Main()
 
     def teardown(self):
-        pass
+        self.main.quit()
 
     def test_wechat(self):
         assert self.main.add_newMember().add_new().addressBook()

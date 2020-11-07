@@ -42,3 +42,7 @@ class Base:
 
     def find_list(self, by, locator):
         return self._driver.find_elements(by, locator)
+
+    # 关闭session
+    def quit(self):
+        self._driver.quit()
