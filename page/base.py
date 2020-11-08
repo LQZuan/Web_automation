@@ -2,6 +2,7 @@ import shelve
 
 from selenium import webdriver
 from selenium.webdriver.chrome.webdriver import WebDriver
+from selenium.webdriver.common.by import By
 
 """本模块主要封装了通用方法"""
 
@@ -37,6 +38,7 @@ class Base:
             self._driver.implicitly_wait(10)
 
     """封装两个查找元素的方法"""
+
     def find(self, by, locator):
         return self._driver.find_element(by, locator)
 
@@ -46,3 +48,11 @@ class Base:
     # 关闭session
     def quit(self):
         self._driver.quit()
+
+    """判断分页元素是否存在在页面"""
+    def isElementExist(self, element):
+        ele = self.find_list(By.CSS_SELECTOR, element)
+        if len(ele) != 0:
+            return True
+        else:
+            return False

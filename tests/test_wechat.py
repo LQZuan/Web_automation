@@ -1,3 +1,5 @@
+import pytest
+
 from page.main import Main
 
 """本模块为测试代码"""
@@ -10,5 +12,6 @@ class TestWechat:
     def teardown(self):
         self.main.quit()
 
-    def test_wechat(self):
-        assert self.main.add_newMember().add_new().addressBook()
+    @pytest.mark.parametrize("username, uid, phonenum", [("hogwarts007", "19799", "15879654998")])
+    def test_wechat(self, username, uid, phonenum):
+        assert self.main.add_newMember().add_new(username, uid, phonenum).addressBook(username)

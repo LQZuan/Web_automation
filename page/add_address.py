@@ -12,11 +12,11 @@ class AddAddress(Base):
     2.点击保存
     3.页面跳转
     """
-    def add_new(self):
+    def add_new(self, username, uid, phonenum):
         # 填表
-        self.find(By.ID, "username").send_keys("hello")
-        self.find(By.ID, "memberAdd_acctid").send_keys("hello")
-        self.find(By.ID, "memberAdd_phone").send_keys("15712341258")
+        self.find(By.ID, "username").send_keys(username)
+        self.find(By.ID, "memberAdd_acctid").send_keys(uid)
+        self.find(By.ID, "memberAdd_phone").send_keys(phonenum)
         # 保存
         self.find_list(By.CSS_SELECTOR, ".js_btn_save")[1].click()
         # 返回通讯录页面
